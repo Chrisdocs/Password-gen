@@ -1,3 +1,4 @@
+
 // Assignment code here
 
 //calls the function when the generate password button is clicked
@@ -5,9 +6,10 @@ var generatePassword = function() {
   
   //prompts the user to provide a password length between 8 and 128
   passwordLength = window.prompt("Please enter a number between 8 and 128.");
-  localStorage.setItem("length", passwordLength);
-  if (passwordLength < 8 || passwordLength > 128) {
-    alert("Please enter a valid number between 8 and 128.");
+  if (passwordLength > 8 && passwordLength < 128) {
+    localStorage.setItem("length", passwordLength);
+  } else if (passwordLength < 8 || passwordLength > 128) {
+    window.prompt("you must enter a valid number between 8 and 128.")
   }
 
   //prompts the user to confirm if they would like to use numbers
@@ -56,7 +58,7 @@ var generatePassword = function() {
   }
 //creates a for loop, not actually totally sure how this works code found here: https://www.codegrepper.com/code-examples/javascript/javascript+password+generator+example
 function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
+  for (var i = array.length; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
     var temp = array[i];
     array[i] = array[j];
